@@ -1,8 +1,11 @@
 services:
   mariadb:
-    image: mariadb:10.6.4-focal
+    image: mariadb
+    build:
+      context: ./requirements/mariadb
     volumes:
       - "/home/$USER/data/mariadb:/var/lib/mysql"
+      - ./requirements/mariadb/conf/config.conf:/etc/my.cnf
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:?required}
