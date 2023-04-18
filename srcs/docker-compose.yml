@@ -15,11 +15,14 @@ services:
       - MYSQL_PASSWORD=${MYSQL_PASSWORD:?required}
       - MYSQL_DATABASE=${MYSQL_DATABASE:?required}
   wordpress:
-    image: wordpress:php8.2-fpm-alpine
+    image: wordpress
+    build:
+      context: ./requirements/wordpress
     depends_on:
       - mariadb
     volumes:
       - wordpress:/var/www/html
+      - ./requirements/wordpress/conf/config.conf:/etc/php/php-fpm.d/www.conf:ro
     networks:
       - inception
     restart: always
@@ -28,6 +31,14 @@ services:
       - WORDPRESS_DB_USER=${MYSQL_USER:?required}
       - WORDPRESS_DB_PASSWORD=${MYSQL_PASSWORD:?required}
       - WORDPRESS_DB_NAME=${MYSQL_DATABASE:?required}
+      - WORDPRESS_URL=${DOMAIN_NAME:?required}
+      - WORDPRESS_SITE_TITLE=${WORDPRESS_SITE_TITLE:?required}
+      - WORDPRESS_ADMIN=${WORDPRESS_ADMIN:?required}
+      - WORDPRESS_ADMIN_EMAIL=${WORDPRESS_ADMIN_EMAIL:?required}
+      - WORDPRESS_ADMIN_PASSWORD=${WORDPRESS_ADMIN_PASSWORD:?required}
+      - WORDPRESS_EDITOR=${WORDPRESS_EDITOR:?required}
+      - WORDPRESS_EDITOR_EMAIL=${WORDPRESS_EDITOR_EMAIL:?required}
+      - WORDPRESS_EDITOR_PASSWORD=${WORDPRESS_EDITOR_PASSWORD:?required}
   nginx:
     image: nginx:1.24.0-alpine3.17
     depends_on:
@@ -56,4 +67,5 @@ volumes:
       o: 'bind'
       device: "/home/$USER/data/wordpress"
 networks:
-  inception: {}
+  inception:
+    name: inception
