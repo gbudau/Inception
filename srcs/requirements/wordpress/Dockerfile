@@ -4,14 +4,7 @@ RUN \
 	apk add --update --no-cache \
 	dumb-init \
 	coreutils \
-	openssl3 \
 	mysql-client \
-	libcurl \
-	libxml2 \
-	libzip \
-	icu \
-	zlib \
-	imagemagick \
 	php81 \
 	php81-fpm \
 	php81-opcache \
