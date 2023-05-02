@@ -82,6 +82,25 @@ services:
     networks:
       - inception
     restart: always
+  vsftpd:
+    image: vsftpd
+    build:
+      args:
+        - DOMAIN_NAME=${DOMAIN_NAME:?required}
+      context: ./requirements/bonus/vsftpd
+    volumes:
+      - "wordpress:/vsftpd/$FTPS_USER/ftp/files"
+    networks:
+      - inception
+    ports:
+      - 0.0.0.0:20:20
+      - 0.0.0.0:21:21
+      - "30020-30039:30020-30039"
+    restart: always
+    environment:
+      - FTPS_USER=${FTPS_USER:?required}
+      - FTPS_USER_PASSWORD=${FTPS_USER_PASSWORD:?required}
+      - FTPS_PASV_ADDRESS=${DOMAIN_NAME:?required}
 volumes:
   mariadb:
     driver: local
