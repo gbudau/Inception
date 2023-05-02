@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>George Budau - Software Developer</title>
+    <meta name="description" content="George Budau - Software Developer">
+  </head>
+
+  <body>
+    <nav>
+      <ul>
+        <li>
+          <h1><a href="./index.html"><span class="fas fa-code" aria-hidden="true"></span><span> George Budau</span></a>
+          </h1>
+        </li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="https://www.linkedin.com/in/gbudau" target="_blank"><span class="fab fa-linkedin"
+              aria-hidden="true"></span>
+            <span class="sr-only">LinkedIn</span>
+          </a></li>
+        <li><a href="https://www.github.com/gbudau" target="_blank"><span class="fab fa-github-square"
+              aria-hidden="true"></span>
+            <span class="sr-only">Github</span></a></li>
+        <li><a href="https://resume.github.io/?gbudau" target="_blank" class="button">Resume</a></li>
+        </li>
+    </nav>
+    <section id="intro">
+      <p class="name">Hi, my name is <span>George Budau.</span></p>
+      <h2>I am a software developer</h2>
+      <p>Currently studying Computer Software Engineering at <a href="https://www.42madrid.com/" target="_blank">42
+          Madrid</a>
+        school.
+      </p>
+    </section>
+    <div class="horizontal-gradient"></div>
+    <div class="section-dkblue">
+      <section id="projects">
+        <h2>Projects I'm proud of</h2>
+        <article>
+          <div class="project-text">
+            <h3>Full-stack web application</h3>
+            <a href="https://github.com/42agv/ft_transcendence" target="_blank"><img
+                src="https://img.shields.io/badge/GitHub-View_on_GitHub-blue?logo=GitHub" alt="View on GitHub"></a>
+            <p class="black-box">A full-stack web application where users can play multiplayer online pong, chat, add
+              friends, and more.
+              The backend was developed with the NestJS framework, which provides a scalable and modular architecture
+              for building server-side applications. The API is responsible for managing game state, player
+              interactions, and authentication, and it uses PostgreSQL for database management.
+              Frontend client developed with React, a popular JavaScript library for building user interfaces. React
+              provides a declarative and component-based approach to building UIs, making it easier to manage complex
+              user interfaces.
+              The chat and online games are implemented using Socket.IO for Real-time communication between the server
+              and client applications.</p>
+            <h4>Technologies used include:</h4>
+            <ul>
+              <li>NestJS</li>
+              <li>React</li>
+              <li>TypeScript</li>
+              <li>PostgreSQL</li>
+              <li>Docker</li>
+              <li>Socket.IO</li>
+            </ul>
+          </div>
+          <img class="projects-img" src="./images/ft_transcendence.webp" alt="Single page application">
+        </article>
+        <article class="reverse">
+          <div class="project-text">
+            <h3>HTTP Web Server</h3>
+            <a href="https://github.com/42agv/webserv" target="_blank"><img
+                src="https://img.shields.io/badge/GitHub-View_on_GitHub-blue?logo=GitHub" alt="View on GitHub"></a>
+            <p class="black-box">An HTTP server in C++. Adheres to the HTTP 1.1 RFC and supports serving static web
+              pages efficiently and securely. It also supports the Common Gateway Interface (CGI) standard, allowing for
+              the dynamic generation of web content.</p>
+            <h4>Technologies used include:</h4>
+            <ul>
+              <li>C++</li>
+            </ul>
+          </div>
+          <img class="projects-img" src="./images/HTTP.webp"
+            alt="An HTTP client sends a request message to an HTTP server.  The server, in turn, returns a response message.">
+        </article>
+        <article>
+          <div class="project-text">
+            <h3>Command-line shell</h3>
+            <a href="https://github.com/gbudau/minishell" target="_blank"><img
+                src="https://img.shields.io/badge/GitHub-View_on_GitHub-blue?logo=GitHub" alt="View on GitHub"></a>
+            <p class="black-box">A shell program in C. Provides users with a familiar command-line interface to interact
+              with the operating system. It supports command execution, file redirection, pipelines, environment
+              variable expansion, and signal handling, which allows users to run and manipulate programs and files from
+              the command line.</p>
+            <h4>Technologies used include:</h4>
+            <ul>
+              <li>C</li>
+            </ul>
+          </div>
+          <img class="projects-img" src="./images/cli-shell.webp" alt="Terminal showing multiple shell commands">
+        </article>
+        <article class="reverse">
+          <div class="project-text">
+            <h3>Multi-services on a kubernetes cluster</h3>
+            <a href="https://github.com/gbudau/ft_services" target="_blank"><img
+                src="https://img.shields.io/badge/GitHub-View_on_GitHub-blue?logo=GitHub" alt="View on GitHub"></a>
+            <p class="black-box">A multi-service platform consisting of several services, including Nginx, WordPress,
+              phpMyAdmin, Grafana, MySQL, FTPS, and InfluxDB. Each service is deployed in its container, and Kubernetes
+              manages the orchestration and scaling of the containers.</p>
+            <h4>Technologies used include:</h4>
+            <ul>
+              <li>Kubernetes</li>
+              <li>Docker</li>
+              <li>Metallb</li>
+              <li>Nginx</li>
+              <li>MariaDB</li>
+              <li>Wordpress</li>
+              <li>phpMyAdmin</li>
+              <li>Grafana</li>
+              <li>InfluxDB</li>
+              <li>Telegraf</li>
+              <li>Vsftpd</li>
+            </ul>
+          </div>
+          <img class="projects-img" src="./images/kubernetes-dashboard.webp" alt="Kubernetes dashboard">
+        </article>
+      </section>
+    </div>
+    <div class="horizontal-gradient"></div>
+    <div class="section-plum">
+      <section id="contact">
+        <h2>Contact me</h2>
+        <p>I'm always interested in hearing about new opportunities.</p>
+        <p><a href="mailto:gbudau@student.42madrid.com" class="button">Email me</a></p>
+      </section>
+    </div>
+    <div class="horizontal-gradient"></div>
+    <footer>
+      <h2>George Budau &middot; Software Developer</h2>
+      <ul>
+        <li><a href="https://www.linkedin.com/in/gbudau" target="_blank"><span class="fab fa-linkedin"
+              aria-hidden="true"></span>
+            <span class="sr-only">LinkedIn</span>
+          </a></li>
+        <li><a href="https://www.github.com/gbudau" target="_blank"><span class="fab fa-github-square"
+              aria-hidden="true"></span>
+            <span class="sr-only">Github</span></a></li>
+        <li><a href="mailto:gbudau@student.42madrid.com"><span class="fas fa-envelope" aria-hidden="true"></span>
+            <span class="sr-only">E-Mail</span></a></li>
+      </ul>
+      <p>
+        <small>&copy; <time id="year">2022</time> George Budau. All rights reserved.</small>
+      </p>
+    </footer>
+    <script src="./javascript/index.js"></script>
+  </body>
+
+</html>
