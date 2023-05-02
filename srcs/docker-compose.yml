@@ -48,6 +48,7 @@ services:
       - portfolio
     volumes:
       - wordpress:/var/www/html:ro
+      - adminer:/var/www/adminer/html:ro
       - ./requirements/nginx/conf/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./requirements/nginx/conf/config.conf:/etc/nginx/conf.d/default.conf:ro
       - ./requirements/nginx/conf/proxy.conf:/etc/nginx/proxy.conf:ro
@@ -69,6 +70,18 @@ services:
     networks:
       - inception
     restart: always
+  adminer:
+    image: adminer
+    build:
+      context: ./requirements/bonus/adminer
+    depends_on:
+      - mariadb
+    volumes:
+      - adminer:/var/www/adminer/html
+      - ./requirements/bonus/adminer/conf/config.conf:/etc/php/php-fpm.d/www.conf:ro
+    networks:
+      - inception
+    restart: always
 volumes:
   mariadb:
     driver: local
@@ -84,6 +97,13 @@ volumes:
       type: 'none'
       o: 'bind'
       device: "/home/$USER/data/wordpress"
+  adminer:
+    driver: local
+    name: adminer
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: "/home/$USER/data/adminer"
 networks:
   inception:
     name: inception
