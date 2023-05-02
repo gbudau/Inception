@@ -17,7 +17,6 @@ RUN ln -s /usr/bin/php81 /usr/bin/php && \
 # Create www-data user and group
 RUN adduser -u 82 -D -S -G www-data www-data
 
-# Install wordpress and wp-cli
 RUN \
 	mkdir -p /var/www/adminer/html && \
 	chown -R www-data:www-data /var/www/adminer/html
