@@ -89,7 +89,7 @@ services:
         - DOMAIN_NAME=${DOMAIN_NAME:?required}
       context: ./requirements/bonus/vsftpd
     volumes:
-      - "wordpress:/vsftpd/$FTPS_USER/ftp/files"
+      - "wordpress:/vsftpd/$FTPS_USER/ftp/wordpress/"
     networks:
       - inception
     ports:
