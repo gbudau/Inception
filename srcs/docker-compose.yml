@@ -18,6 +18,10 @@ services:
     image: wordpress
     build:
       context: ./requirements/wordpress
+      args:
+      - SHARED_UID=${SHARED_UID:?required}
+      - SHARED_GID=${SHARED_GID:?required}
+      - SHARED_GROUP=${SHARED_GROUP:?required}
     depends_on:
       - mariadb
     volumes:
@@ -101,6 +105,9 @@ services:
       - FTPS_USER=${FTPS_USER:?required}
       - FTPS_USER_PASSWORD=${FTPS_USER_PASSWORD:?required}
       - FTPS_PASV_ADDRESS=${DOMAIN_NAME:?required}
+      - SHARED_UID=${SHARED_UID:?required}
+      - SHARED_GID=${SHARED_GID:?required}
+      - SHARED_GROUP=${SHARED_GROUP:?required}
 volumes:
   mariadb:
     driver: local
