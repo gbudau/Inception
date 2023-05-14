@@ -1,6 +1,7 @@
 MARIADB_DIR="/home/${USER}/data/mariadb"
 WORDPRESS_DIR="/home/${USER}/data/wordpress"
 ADMINER_DIR="/home/${USER}/data/adminer"
+REDIS_DIR="/home/${USER}/data/redis"
 ADMINER="/home/${USER}/data/adminer/index.php"
 
 .PHONY: all
@@ -15,6 +16,7 @@ volumes:
 	@mkdir -p $(MARIADB_DIR)
 	@mkdir -p $(WORDPRESS_DIR)
 	@mkdir -p $(ADMINER_DIR)
+	@mkdir -p $(REDIS_DIR)
 
 .PHONY: adminer
 adminer:

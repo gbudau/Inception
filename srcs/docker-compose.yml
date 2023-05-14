@@ -35,7 +35,7 @@ services:
       - DB_USER=${MYSQL_USER:?required}
       - DB_PASSWORD=${MYSQL_PASSWORD:?required}
       - DB_NAME=${MYSQL_DATABASE:?required}
-      - WORDPRESS_URL=${DOMAIN_NAME:?required}
+      - WORDPRESS_DOMAIN=${DOMAIN_NAME:?required}
       - WORDPRESS_SITE_TITLE=${WORDPRESS_SITE_TITLE:?required}
       - WORDPRESS_ADMIN=${WORDPRESS_ADMIN:?required}
       - WORDPRESS_ADMIN_EMAIL=${WORDPRESS_ADMIN_EMAIL:?required}
@@ -93,7 +93,7 @@ services:
         - DOMAIN_NAME=${DOMAIN_NAME:?required}
       context: ./requirements/bonus/vsftpd
     volumes:
-      - "wordpress:/vsftpd/$FTPS_USER/ftp/wordpress/"
+      - "wordpress:/vsftpd/$FTPS_USER/ftp/wordpress"
     networks:
       - inception
     ports:
@@ -108,6 +108,16 @@ services:
       - SHARED_UID=${SHARED_UID:?required}
       - SHARED_GID=${SHARED_GID:?required}
       - SHARED_GROUP=${SHARED_GROUP:?required}
+  redis:
+    image: redis
+    build:
+      context: ./requirements/bonus/redis
+    volumes:
+      - "redis:/data"
+      - ./requirements/bonus/redis/conf/config.conf:/etc/redis.conf:ro
+    networks:
+      - inception
+    restart: always
 volumes:
   mariadb:
     driver: local
@@ -130,6 +140,13 @@ volumes:
       type: 'none'
       o: 'bind'
       device: "/home/$USER/data/adminer"
+  redis:
+    driver: local
+    name: redis
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: "/home/$USER/data/redis"
 networks:
   inception:
     name: inception
