@@ -29,7 +29,9 @@ RUN \
 	php81-iconv \
 	php81-intl \
 	php81-phar \
-	php81-pecl-redis
+	php81-pecl-redis \
+	php81-tokenizer \
+	php81-ctype
 
 RUN ln -s /usr/sbin/php-fpm81 /usr/sbin/php-fpm && \
 	ln -s /etc/php81 /etc/php
