@@ -97,8 +97,8 @@ services:
     networks:
       - inception
     ports:
-      - 0.0.0.0:20:20
-      - 0.0.0.0:21:21
+      - 20:20
+      - 21:21
       - "30020-30039:30020-30039"
     restart: always
     environment:
@@ -118,6 +118,20 @@ services:
     networks:
       - inception
     restart: always
+  cadvisor:
+    image: cadvisor
+    build:
+      context: ./requirements/bonus/cadvisor
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /dev/disk/:/dev/disk:ro
+    networks:
+      - inception
+    restart: always
+    privileged: true
 volumes:
   mariadb:
     driver: local
